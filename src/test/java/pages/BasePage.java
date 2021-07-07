@@ -15,16 +15,16 @@ import static tests.BaseTest.getDriver;
 
 public abstract class BasePage {
 
-    WebDriver driver;
-    WaitService waitService;
-    Actions builder;
-    JavascriptExecutor executor;
+    protected WebDriver driver;
+    protected WaitService waitService;
+    protected Actions builder;
+    protected JavascriptExecutor executor;
 
     public BasePage() {
         this.driver = getDriver();
-        waitService = new WaitService(driver);
-        builder = new Actions(driver);
-        executor = (JavascriptExecutor) driver;
+        this.waitService = new WaitService(this.driver);
+        this.builder = new Actions(this.driver);
+        this.executor = (JavascriptExecutor) this.driver;
     }
 
     public void pasteTextToElementFromClipboard(WebElement element, String text) {
