@@ -21,10 +21,10 @@ public class NavigationMenuTest extends BaseTest {
     @Test(dataProvider = "menuItemName")
     public void clickNavigationMenuItem_selectedItemShouldBeActive(String menuItemName) {
         navigationStep.moveToNavigationLinkTooltip(NavigationLinksConstants.NEWS)
-                .clickMenuItem(menuItemName)
+                .clickMenu(menuItemName)
                 .verifyThatThatSelectedMenuItemAreActive(menuItemName);
 
-        navigationStep.clickTheFirstNews()
+        navigationStep.clickNews()
                 .verifyThatThatSelectedMenuItemAreActive(menuItemName);
     }
 }

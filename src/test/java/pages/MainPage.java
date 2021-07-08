@@ -32,7 +32,12 @@ public class MainPage extends BasePage {
                 .orElseThrow(() -> new IllegalArgumentException(String.format("Link name [%s] is not present in the navigation menu", linkName)));
     }
 
-    public WebElement getItemFromNavigationMenu(String menuItemName) {
+    public void clickMenuItem(String menuItemName) {
+        WebElement navigationMenuItem = getMenuItem(menuItemName);
+        click(navigationMenuItem);
+    }
+
+    public WebElement getMenuItem(String menuItemName) {
         return navigationMenuElements().stream()
                 .filter(i -> i.getText().equalsIgnoreCase(menuItemName))
                 .findFirst()

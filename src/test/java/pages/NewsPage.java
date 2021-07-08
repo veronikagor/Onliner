@@ -30,8 +30,8 @@ public class NewsPage extends BasePage {
                 .as(String.format("The active project navigation item [%s] was not found or it's no active", expectedText));
     }
 
-    public WebElement getTheFirstCoupleOfNews() {
-        return resultRowOfNews().get(0);
+    public void clickTheFirstNews() {
+        click(resultRowOfNews().get(0));
     }
 
 }
