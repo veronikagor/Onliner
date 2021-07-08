@@ -7,6 +7,8 @@ import java.util.Properties;
 
 public class PropertyReader {
 
+    private static final String PATH_TO_BROWSER_DRIVER = "src/test/resources/framework.properties";
+
     public static String getBaseUrl() {
         return getProperty("url");
     }
@@ -32,7 +34,7 @@ public class PropertyReader {
         InputStream input = null;
 
         try {
-            input = new FileInputStream("src/test/resources/framework.properties");
+            input = new FileInputStream(PATH_TO_BROWSER_DRIVER);
             prop.load(input);
         } catch (IOException ex) {
             System.out.println("Cannot read property value for " + propertyName);
