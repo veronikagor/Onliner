@@ -9,11 +9,18 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class MainPage extends BasePage {
 
+    private Header header;
+
     private By navigationMenu = By.xpath("//div[@class = 'b-main-navigation__dropdown b-main-navigation__dropdown_visible']//a[@class='b-main-navigation__dropdown-title-link']");
     private By navigationLinks = By.xpath("//span[@class='b-main-navigation__text']");
 
     public MainPage() {
         super();
+        this.header = new Header();
+    }
+
+    public Header getHeader(){
+      return this.header;
     }
 
     public List<WebElement> navigationMenuElements() { return waitService.getVisibleElements(navigationMenu); }

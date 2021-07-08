@@ -10,11 +10,14 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class SearchResultPage extends BasePage {
 
+    Header header;
+
     private By searchResultRow = By.xpath("//div[@class ='result__item result__item_product']//a[@class='product__title-link']");
     private By searchIframe = By.className("modal-iframe");
 
     public SearchResultPage() {
         super();
+        this.header = new Header();
     }
 
     public void assertThatExpectedValueIsContainInSearchList(String expectedValue) {

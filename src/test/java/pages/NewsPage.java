@@ -9,11 +9,14 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class NewsPage extends BasePage {
 
+    Header header;
+
     private By projectNavigationActiveItem = By.xpath("//li[@class='project-navigation__item project-navigation__item_primary project-navigation__item_active']");
     private By resultRowOfNews = By.xpath("//div[starts-with(@class, 'news-tidings__item news-tidings__item_1of3')]");
 
     public NewsPage() {
         super();
+        this.header = new Header();
     }
 
     public List<WebElement> resultRowOfNews() {
