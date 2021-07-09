@@ -1,11 +1,15 @@
 package utils;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
 public class PropertyReader {
+    private static Logger logger = LoggerFactory.getLogger(PropertyReader.class);
 
     private static final String PATH_TO_BROWSER_DRIVER = "src/test/resources/framework.properties";
 
@@ -37,7 +41,7 @@ public class PropertyReader {
             input = new FileInputStream(PATH_TO_BROWSER_DRIVER);
             prop.load(input);
         } catch (IOException ex) {
-            System.out.println("Cannot read property value for " + propertyName);
+            logger.error("Cannot read property value for " + propertyName);
             ex.printStackTrace();
         } finally {
             if (input != null) {
