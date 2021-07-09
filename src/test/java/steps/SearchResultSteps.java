@@ -15,5 +15,4 @@ public class SearchResultSteps {
     public void verifyThatTopResultContainsCorrectText(String text) {
         searchResultPage.assertThatExpectedValueIsContainInSearchList(text);
     }
-
 }

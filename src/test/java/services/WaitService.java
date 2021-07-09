@@ -11,7 +11,6 @@ import utils.PropertyReader;
 import java.util.List;
 
 public class WaitService {
-
     private WebDriverWait wait;
 
     public WaitService(WebDriver driver) {
@@ -44,7 +43,7 @@ public class WaitService {
             return wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(by));
         }
         catch (Exception e) {
-            throw new NoSuchElementException(e.getMessage());
+            throw new NoSuchElementException(e.getMessage());//TODO exception
         }
     }
 }

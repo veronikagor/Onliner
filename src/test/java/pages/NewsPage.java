@@ -36,5 +36,4 @@ public class NewsPage extends BasePage {
     public void clickTheFirstNews() {
         click(resultRowOfNews().get(0));
     }
-
 }

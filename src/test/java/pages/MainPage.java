@@ -19,9 +19,13 @@ public class MainPage extends BasePage {
         this.header = new Header(driver);
     }
 
-    public List<WebElement> navigationMenuElements() { return waitService.getVisibleElements(navigationMenu); }
+    public List<WebElement> navigationMenuElements() {
+        return waitService.getVisibleElements(navigationMenu);
+    }
 
-    public List<WebElement> navigationLinksElements() { return waitService.getVisibleElements(navigationLinks); }
+    public List<WebElement> navigationLinksElements() {
+        return waitService.getVisibleElements(navigationLinks);
+    }
 
     public void moveToNavigationLink(String linkName) {
         WebElement itemOfNavigationMenu = getItemFromNavigationLinks(linkName);

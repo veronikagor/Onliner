@@ -1,7 +1,7 @@
 package tests;
 
-import constants.NavigationLinksConstants;
-import constants.NewsMenuItemsConstants;
+import constants.NavigationConstants;
+import constants.TooltipNewsConstants ;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -9,18 +9,23 @@ public class NavigationMenuTest extends BaseTest {
 
     @DataProvider(name = "menuItemName")
     public Object[][] menuItemName() {
-        return new Object[][]{{NewsMenuItemsConstants.PEOPLE}, {NewsMenuItemsConstants.CARS}, {NewsMenuItemsConstants.TECHNOLOGIES}, {NewsMenuItemsConstants.REAL_ESTATE}};
+        return new Object[][]{
+                {TooltipNewsConstants .PEOPLE},
+                {TooltipNewsConstants .CARS},
+                {TooltipNewsConstants .TECHNOLOGIES},
+                {TooltipNewsConstants .REAL_ESTATE}
+        };
     }
 
     @Test(dataProvider = "menuItemName")
-    public void openNavigationLink_menuItemsShouldBePresent(String menuItemName) {
-        navigationStep.moveToNavigationLinkTooltip(NavigationLinksConstants.NEWS)
+    public void openNavigationLinkAndMenuItemsShouldBePresent(String menuItemName) {
+        navigationStep.moveToNavigationLinkTooltip(NavigationConstants.NEWS)
                 .verifyThatMenuItemIsPresent(menuItemName);
     }
 
     @Test(dataProvider = "menuItemName")
-    public void clickNavigationMenuItem_selectedItemShouldBeActive(String menuItemName) {
-        navigationStep.moveToNavigationLinkTooltip(NavigationLinksConstants.NEWS)
+    public void clickNavigationMenuItemAndSelectedItemShouldBeActive(String menuItemName) {
+        navigationStep.moveToNavigationLinkTooltip(NavigationConstants .NEWS)
                 .clickMenu(menuItemName)
                 .verifyThatThatSelectedMenuItemAreActive(menuItemName);
 

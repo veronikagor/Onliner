@@ -39,5 +39,4 @@ public abstract class BasePage {
             executor.executeScript("arguments[0].click()", element);
         }
     }
-
 }
