@@ -1,5 +1,6 @@
 package steps;
 
+import org.openqa.selenium.WebDriver;
 import pages.MainPage;
 import pages.NewsPage;
 
@@ -20,11 +21,11 @@ public class NavigationStep {
 
     public NavigationResultSteps clickMenu(String menuItem) {
         mainPage.clickMenuItem(menuItem);
-        return new NavigationResultSteps();
+        return new NavigationResultSteps(driver);
     }
 
     public NavigationResultSteps clickNews() {
         newsPage.clickTheFirstNews();
-        return new NavigationResultSteps();
+        return new NavigationResultSteps(driver);
     }
 }

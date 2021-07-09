@@ -11,17 +11,14 @@ import java.awt.*;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
 
-import static tests.BaseTest.getDriver;
-
 public abstract class BasePage {
-
     protected WebDriver driver;
     protected WaitService waitService;
     protected Actions builder;
     protected JavascriptExecutor executor;
 
-    public BasePage() {
-        this.driver = getDriver();
+    public BasePage(WebDriver driver) {
+        this.driver = driver;
         this.waitService = new WaitService(this.driver);
         this.builder = new Actions(this.driver);
         this.executor = (JavascriptExecutor) this.driver;

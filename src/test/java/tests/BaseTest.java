@@ -6,28 +6,23 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import steps.NavigationSteps;
 import steps.SearchSteps;
-import utils.DriverFactory;
+import utils.DriverManager;
 import utils.PropertyReader;
 
-import java.time.Duration;
-
 public abstract class BaseTest {
+    private WebDriver driver;
+    protected NavigationSteps navigationStep;
+    protected SearchSteps searchSteps;
 
-    private static WebDriver driver;
-    NavigationSteps navigationStep;
-    SearchSteps searchSteps;
-
-    public static WebDriver getDriver() {
-        return driver;
+    public WebDriver getDriver() {
+        return this.driver;
     }
 
     @BeforeClass
     public void setUp() {
-        driver = DriverFactory.getDriver(PropertyReader.getBrowser());
-        driver.get(PropertyReader.getBaseUrl());
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        navigationStep = new NavigationSteps();
-        searchSteps = new SearchSteps();
+        driver = new DriverManager().getDriver();
+        navigationStep = new NavigationSteps(driver);
+        searchSteps = new SearchSteps(driver);
     }
 
     @AfterClass
