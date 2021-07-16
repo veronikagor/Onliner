@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import utils.WaitUtils;
 
 import java.util.List;
 
@@ -19,11 +20,11 @@ public class NewsPage extends BasePage {
     }
 
     public List<WebElement> resultRowOfNews() {
-        return waitService.getVisibleElements(resultRowOfNews);
+        return WaitUtils.getVisibleElements(resultRowOfNews);
     }
 
     public WebElement projectNavigationActiveItem() {
-        return waitService.getVisibleElement(projectNavigationActiveItem);
+        return WaitUtils.getVisibleElement(projectNavigationActiveItem);
     }
 
     public void assertThatSelectedMenuItemsAreActive(String expectedText) {

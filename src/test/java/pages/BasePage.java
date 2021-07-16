@@ -1,12 +1,12 @@
 package pages;
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import tests.BaseTest;
-import utils.WaitService;
+import utils.ActionUtil;
+import utils.JsExecutorUtil;
+import utils.WaitUtils;
 
 import java.awt.*;
 import java.awt.datatransfer.Clipboard;
@@ -14,15 +14,13 @@ import java.awt.datatransfer.StringSelection;
 
 public abstract class BasePage {
     protected WebDriver driver;
-    protected WaitService waitService;
-    protected Actions builder;
-    protected JavascriptExecutor executor;
 
     public BasePage() {
         driver = BaseTest.getDriver();
-        waitService = new WaitService(this.driver);
-        builder = new Actions(this.driver);
-        executor = (JavascriptExecutor) this.driver;
+    }
+
+    public void moveToElement(WebElement element) {
+        ActionUtil.moveToElement(element);
     }
 
     public void pasteTextToElementFromClipboard(WebElement element, String text) {
@@ -35,10 +33,9 @@ public abstract class BasePage {
 
     public void click(WebElement element) {
         try {
-            waitService.getClickableElement(element).click();
+            WaitUtils.getClickableElement(element).click();
         } catch (Exception e) {
-            executor.executeScript("arguments[0].click()", element);
+            JsExecutorUtil.clickElementWithJSExecutor(element);
         }
     }
-
 }

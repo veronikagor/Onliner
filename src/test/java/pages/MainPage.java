@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import utils.WaitUtils;
 
 import java.util.List;
 
@@ -19,16 +20,16 @@ public class MainPage extends BasePage {
     }
 
     public List<WebElement> navigationMenuElements() {
-        return waitService.getVisibleElements(navigationMenu);
+        return WaitUtils.getVisibleElements(navigationMenu);
     }
 
     public List<WebElement> navigationLinksElements() {
-        return waitService.getVisibleElements(navigationLinks);
+        return WaitUtils.getVisibleElements(navigationLinks);
     }
 
     public void moveToNavigationLink(String linkName) {
         WebElement itemOfNavigationMenu = getItemFromNavigationLinks(linkName);
-        builder.moveToElement(itemOfNavigationMenu).build().perform();
+        moveToElement(itemOfNavigationMenu);
     }
 
     public WebElement getItemFromNavigationLinks(String linkName) {
