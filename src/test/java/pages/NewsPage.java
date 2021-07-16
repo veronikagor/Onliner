@@ -1,7 +1,6 @@
 package pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import java.util.List;
@@ -14,9 +13,9 @@ public class NewsPage extends BasePage {
     private By projectNavigationActiveItem = By.xpath("//li[@class='project-navigation__item project-navigation__item_primary project-navigation__item_active']");
     private By resultRowOfNews = By.xpath("//div[starts-with(@class, 'news-tidings__item news-tidings__item_1of3')]");
 
-    public NewsPage(WebDriver driver) {
-        super(driver);
-        this.header = new Header(driver);
+    public NewsPage() {
+        super();
+        this.header = new Header();
     }
 
     public List<WebElement> resultRowOfNews() {

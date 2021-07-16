@@ -6,32 +6,32 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import steps.NavigationSteps;
 import steps.SearchSteps;
-import utils.DriverManager;
 import utils.PropertyReader;
+import utils.driverUtils.DriverHelper;
 
 public abstract class BaseTest {
-    private WebDriver driver;
+    private static WebDriver driver;
     protected NavigationSteps navigationStep;
     protected SearchSteps searchSteps;
 
-    public WebDriver getDriver() {
-        return this.driver;
+    public static WebDriver getDriver() {
+        return driver;
     }
 
     @BeforeClass
     public void setUp() {
-        driver = new DriverManager().getDriver();
-        navigationStep = new NavigationSteps(driver);
-        searchSteps = new SearchSteps(driver);
-    }
-
-    @AfterClass
-    public void tearDown() {
-        driver.quit();
+        driver = DriverHelper.getDriver();
+        navigationStep = new NavigationSteps();
+        searchSteps = new SearchSteps();
     }
 
     @AfterMethod
     public void goBack() {
-        driver.navigate().to(PropertyReader.getBaseUrl());
+       DriverHelper.goToUrl(PropertyReader.getBaseUrl());
+
+    }
+    @AfterClass
+    public void tearDown() {
+        DriverHelper.quitDriver();
     }
 }

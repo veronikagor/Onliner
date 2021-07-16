@@ -2,6 +2,7 @@ package utils;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import utils.driverUtils.BrowserType;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -17,8 +18,8 @@ public class PropertyReader {
         return getProperty("url");
     }
 
-    public static Browser getBrowser() {
-        return Browser.valueOf(getProperty("browser"));
+    public static BrowserType getBrowser() {
+        return BrowserType.valueOf(getProperty("browser"));
     }
 
     public static int getDefaultWebDriverWait() {

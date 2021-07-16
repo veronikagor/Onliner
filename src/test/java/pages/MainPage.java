@@ -1,7 +1,6 @@
 package pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import java.util.List;
@@ -14,9 +13,9 @@ public class MainPage extends BasePage {
     private By navigationMenu = By.xpath("//div[@class = 'b-main-navigation__dropdown b-main-navigation__dropdown_visible']//a[@class='b-main-navigation__dropdown-title-link']");
     private By navigationLinks = By.xpath("//span[@class='b-main-navigation__text']");
 
-    public MainPage(WebDriver driver) {
-        super(driver);
-        this.header = new Header(driver);
+    public MainPage() {
+        super();
+        this.header = new Header();
     }
 
     public List<WebElement> navigationMenuElements() {

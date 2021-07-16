@@ -1,7 +1,7 @@
 package tests;
 
 import constants.NavigationConstants;
-import constants.TooltipNewsConstants ;
+import constants.TooltipNewsConstants;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 

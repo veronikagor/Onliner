@@ -5,7 +5,8 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import services.WaitService;
+import tests.BaseTest;
+import utils.WaitService;
 
 import java.awt.*;
 import java.awt.datatransfer.Clipboard;
@@ -17,11 +18,11 @@ public abstract class BasePage {
     protected Actions builder;
     protected JavascriptExecutor executor;
 
-    public BasePage(WebDriver driver) {
-        this.driver = driver;
-        this.waitService = new WaitService(this.driver);
-        this.builder = new Actions(this.driver);
-        this.executor = (JavascriptExecutor) this.driver;
+    public BasePage() {
+        driver = BaseTest.getDriver();
+        waitService = new WaitService(this.driver);
+        builder = new Actions(this.driver);
+        executor = (JavascriptExecutor) this.driver;
     }
 
     public void pasteTextToElementFromClipboard(WebElement element, String text) {
@@ -39,4 +40,5 @@ public abstract class BasePage {
             executor.executeScript("arguments[0].click()", element);
         }
     }
+
 }

@@ -1,31 +1,34 @@
 package steps;
 
-import org.openqa.selenium.WebDriver;
 import pages.MainPage;
 import pages.NewsPage;
 
-public class NavigationStep {
+public class NavigationSteps {
+    private MainPage mainPage;
+    private NewsPage newsPage;
 
-    MainPage mainPage = new MainPage();
-    NewsPage newsPage = new NewsPage();
+    public NavigationSteps() {
+        this.mainPage = new MainPage();
+        this.newsPage = new NewsPage();
+    }
 
-    public NavigationStep moveToNavigationLinkTooltip(String linkName) {
+    public NavigationSteps moveToNavigationLinkTooltip(String linkName) {
         mainPage.moveToNavigationLink(linkName);
         return this;
     }
 
-    public NavigationStep verifyThatMenuItemIsPresent(String menuItem) {
+    public NavigationSteps verifyThatMenuItemIsPresent(String menuItem) {
         mainPage.assertThatMenuItemsIsPresent(menuItem);
         return this;
     }
 
     public NavigationResultSteps clickMenu(String menuItem) {
         mainPage.clickMenuItem(menuItem);
-        return new NavigationResultSteps(driver);
+        return new NavigationResultSteps();
     }
 
     public NavigationResultSteps clickNews() {
         newsPage.clickTheFirstNews();
-        return new NavigationResultSteps(driver);
+        return new NavigationResultSteps();
     }
 }
