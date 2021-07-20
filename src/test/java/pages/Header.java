@@ -18,7 +18,8 @@ public class Header extends BasePage {
     }
 
     public void pasteToTheSearchField(String text) {
-        pasteTextToElementFromClipboard(searchFieldElement(), text);
+        searchFieldElement().click();
+        searchFieldElement().sendKeys(text);
     }
 
     public void pressEnter() {
