@@ -3,10 +3,10 @@ package utils;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import tests.BaseTest;
+import utils.driverUtils.DriverHelper;
 
 public class JsExecutorUtil {
-    private static WebDriver driver = BaseTest.getDriver();
+    private static WebDriver driver = DriverHelper.getDriver();
 
     public static Object executeScript(String script, Object... args) {
         return ((JavascriptExecutor) driver).executeScript(script, args);

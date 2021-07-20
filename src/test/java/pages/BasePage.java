@@ -3,10 +3,10 @@ package pages;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import tests.BaseTest;
 import utils.ActionUtil;
 import utils.JsExecutorUtil;
 import utils.WaitUtils;
+import utils.driverUtils.DriverHelper;
 
 import java.awt.*;
 import java.awt.datatransfer.Clipboard;
@@ -16,7 +16,7 @@ public abstract class BasePage {
     protected WebDriver driver;
 
     public BasePage() {
-        driver = BaseTest.getDriver();
+        driver = DriverHelper.getDriver();
     }
 
     public void moveToElement(WebElement element) {
