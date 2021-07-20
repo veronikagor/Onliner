@@ -20,11 +20,13 @@ public class MainPage extends BasePage {
     }
 
     public List<WebElement> navigationMenuElements() {
-        return WaitUtils.getVisibleElements(navigationMenu);
+        WaitUtils.waitElementsAreVisible(navigationMenu);
+        return driver.findElements(navigationMenu);
     }
 
     public List<WebElement> navigationLinksElements() {
-        return WaitUtils.getVisibleElements(navigationLinks);
+        WaitUtils.waitElementsAreVisible(navigationLinks);
+        return driver.findElements(navigationLinks);
     }
 
     public void moveToNavigationLink(String linkName) {

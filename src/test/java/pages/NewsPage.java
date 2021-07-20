@@ -20,11 +20,13 @@ public class NewsPage extends BasePage {
     }
 
     public List<WebElement> resultRowOfNews() {
-        return WaitUtils.getVisibleElements(resultRowOfNews);
+         WaitUtils.waitElementsAreVisible(resultRowOfNews);
+        return driver.findElements(resultRowOfNews);
     }
 
     public WebElement projectNavigationActiveItem() {
-        return WaitUtils.getVisibleElement(projectNavigationActiveItem);
+         WaitUtils.waitElementIsVisible(projectNavigationActiveItem);
+        return driver.findElement(projectNavigationActiveItem);
     }
 
     public void assertThatSelectedMenuItemsAreActive(String expectedText) {

@@ -3,8 +3,8 @@ package pages;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import utils.ActionUtil;
-import utils.JsExecutorUtil;
+import utils.ActionUtils;
+import utils.JsExecutorUtils;
 import utils.WaitUtils;
 import utils.driverUtils.DriverHelper;
 
@@ -20,7 +20,7 @@ public abstract class BasePage {
     }
 
     public void moveToElement(WebElement element) {
-        ActionUtil.moveToElement(element);
+        ActionUtils.moveToElement(element);
     }
 
     public void pasteTextToElementFromClipboard(WebElement element, String text) {
@@ -33,9 +33,10 @@ public abstract class BasePage {
 
     public void click(WebElement element) {
         try {
-            WaitUtils.getClickableElement(element).click();
+            WaitUtils.waitElementIsClickable(element);
+            element.click();
         } catch (Exception e) {
-            JsExecutorUtil.clickElementWithJSExecutor(element);
+            JsExecutorUtils.clickElementWithJSExecutor(element);
         }
     }
 }

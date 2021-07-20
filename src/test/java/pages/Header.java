@@ -13,7 +13,8 @@ public class Header extends BasePage {
     }
 
     public WebElement searchFieldElement() {
-        return WaitUtils.getClickableElement(driver.findElement(searchField));
+         WaitUtils.waitElementIsClickable(driver.findElement(searchField));
+         return driver.findElement(searchField);
     }
 
     public void pasteToTheSearchField(String text) {

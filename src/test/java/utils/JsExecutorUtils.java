@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import utils.driverUtils.DriverHelper;
 
-public class JsExecutorUtil {
+public class JsExecutorUtils {
     private static WebDriver driver = DriverHelper.getDriver();
 
     public static Object executeScript(String script, Object... args) {
