@@ -3,26 +3,25 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import utils.WaitUtils;
 
 public class Header extends BasePage {
-    private By searchField = By.className("fast-search__input");
+
+    @FindBy(className = "fast-search__input")
+    public WebElement searchFieldElement;
 
     public Header() {
         super();
     }
 
-    public WebElement searchFieldElement() {
-         WaitUtils.waitElementIsClickable(driver.findElement(searchField));
-         return driver.findElement(searchField);
-    }
-
     public void pasteToTheSearchField(String text) {
-        searchFieldElement().click();
-        searchFieldElement().sendKeys(text);
+        WaitUtils.waitElementIsClickable(driver.findElement(By.className("fast-search__input")));
+        searchFieldElement.click();
+        searchFieldElement.sendKeys(text);
     }
 
     public void pressEnter() {
-        searchFieldElement().sendKeys((Keys.RETURN));
+        searchFieldElement.sendKeys((Keys.RETURN));
     }
 }

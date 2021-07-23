@@ -25,7 +25,7 @@ public class NavigationMenuTest extends BaseTest {
 
     @Test(dataProvider = "menuItemName")
     public void clickNavigationMenuItemAndSelectedItemShouldBeActive(String menuItemName) {
-        navigationStep.moveToNavigationLinkTooltip(NavigationConstants .NEWS)
+        navigationStep.moveToNavigationLinkTooltip(NavigationConstants.NEWS)
                 .clickMenu(menuItemName)
                 .verifyThatThatSelectedMenuItemAreActive(menuItemName);
 

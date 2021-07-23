@@ -1,7 +1,7 @@
 package pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -9,19 +9,20 @@ import java.util.stream.Collectors;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class SearchResultPage extends BasePage {
-    private Header header;
 
-    private By searchResultRow = By.xpath("//div[@class ='result__item result__item_product']//a[@class='product__title-link']");
-    private By searchIframe = By.className("modal-iframe");
+    @FindBy(xpath = "//div[@class ='result__item result__item_product']//a[@class='product__title-link']")
+    public List<WebElement> searchResultRow;
+
+    @FindBy(className = "modal-iframe")
+    public WebElement searchIframe;
 
     public SearchResultPage() {
         super();
-        this.header = new Header();
     }
 
     public void assertThatExpectedValueIsContainInSearchList(String expectedValue) {
-        driver.switchTo().frame(driver.findElement(searchIframe));
-        List<WebElement> searchResultURLsElements = driver.findElements(searchResultRow);
+        driver.switchTo().frame(searchIframe);
+        List<WebElement> searchResultURLsElements = searchResultRow;
 
         assertThat(searchResultURLsElements.stream().map(WebElement::getText).collect(Collectors.toList()).toString())
                 .as("This result does not contain " + expectedValue)

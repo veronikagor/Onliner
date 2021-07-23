@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
 import utils.ActionUtils;
 import utils.JsExecutorUtils;
 import utils.WaitUtils;
@@ -12,6 +13,7 @@ public abstract class BasePage {
 
     public BasePage() {
         driver = DriverHelper.getDriver();
+        PageFactory.initElements(this.driver, this);
     }
 
     public void moveToElement(WebElement element) {
