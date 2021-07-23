@@ -1,5 +1,6 @@
 package pages;
 
+import baseEntities.BasePage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import utils.WaitUtils;
@@ -15,10 +16,6 @@ public class NewsPage extends BasePage {
 
     @FindBy(xpath = "//li[@class='project-navigation__item project-navigation__item_primary project-navigation__item_active']")
     public WebElement projectNavigationActiveItem;
-
-    public NewsPage() {
-        super();
-    }
 
     public void assertThatSelectedMenuItemsAreActive(String expectedText) {
         WaitUtils.waitElementIsVisible(projectNavigationActiveItem);

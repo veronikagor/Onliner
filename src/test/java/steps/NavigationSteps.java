@@ -1,16 +1,8 @@
 package steps;
 
-import pages.MainPage;
-import pages.NewsPage;
+import baseEntities.BaseStep;
 
-public class NavigationSteps {
-    private MainPage mainPage;
-    private NewsPage newsPage;
-
-    public NavigationSteps() {
-        this.mainPage = new MainPage();
-        this.newsPage = new NewsPage();
-    }
+public class NavigationSteps extends BaseStep {
 
     public NavigationSteps moveToNavigationLinkTooltip(String linkName) {
         mainPage.moveToNavigationLink(linkName);

@@ -1,5 +1,6 @@
 package pages;
 
+import baseEntities.BasePage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import utils.WaitUtils;
@@ -16,10 +17,6 @@ public class SearchResultPage extends BasePage {
 
     @FindBy(className = "modal-iframe")
     public WebElement searchIframe;
-
-    public SearchResultPage() {
-        super();
-    }
 
     public void assertThatExpectedValueIsContainInSearchList(String expectedValue) {
         driver.switchTo().frame(searchIframe);

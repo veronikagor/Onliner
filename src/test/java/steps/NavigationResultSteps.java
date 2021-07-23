@@ -1,13 +1,8 @@
 package steps;
 
-import pages.NewsPage;
+import baseEntities.BaseStep;
 
-public class NavigationResultSteps {
-    private NewsPage newsPage;
-
-    public NavigationResultSteps() {
-        this.newsPage = new NewsPage();
-    }
+public class NavigationResultSteps extends BaseStep {
 
     public void verifyThatThatSelectedMenuItemAreActive(String projectNavigationItem) {
         newsPage.assertThatSelectedMenuItemsAreActive(projectNavigationItem);

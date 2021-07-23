@@ -1,5 +1,6 @@
 package tests;
 
+import baseEntities.BaseTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 

@@ -1,5 +1,6 @@
 package tests;
 
+import baseEntities.BaseTest;
 import constants.NavigationConstants;
 import constants.TooltipNewsConstants;
 import org.testng.annotations.DataProvider;

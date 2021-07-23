@@ -1,5 +1,6 @@
 package pages;
 
+import baseEntities.BasePage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import utils.WaitUtils;
@@ -15,7 +16,7 @@ public class Header extends BasePage {
 
     public void pasteToTheSearchField(String text) {
         WaitUtils.waitElementIsClickable(searchFieldElement);
-        searchFieldElement.click();
+        click(searchFieldElement);
         searchFieldElement.sendKeys(text);
         pressEnter(searchFieldElement);
     }

@@ -1,13 +1,8 @@
 package steps;
 
-import pages.SearchResultPage;
+import baseEntities.BaseStep;
 
-public class SearchResultSteps {
-    private SearchResultPage searchResultPage;
-
-    public SearchResultSteps() {
-        this.searchResultPage = new SearchResultPage();
-    }
+public class SearchResultSteps extends BaseStep {
 
     public void verifyThatTopResultContainsCorrectText(String text) {
         searchResultPage.assertThatExpectedValueIsContainInSearchList(text);

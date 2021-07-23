@@ -1,13 +1,8 @@
 package steps;
 
-import pages.Header;
+import baseEntities.BaseStep;
 
-public class SearchSteps {
-    private Header header;
-
-    public SearchSteps() {
-        this.header = new Header();
-    }
+public class SearchSteps extends BaseStep {
 
     public SearchResultSteps executeSearchByKeyword(String keyword) {
         header.pasteToTheSearchField(keyword);

@@ -1,5 +1,6 @@
 package pages;
 
+import baseEntities.BasePage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import utils.ActionUtils;
@@ -17,10 +18,6 @@ public class MainPage extends BasePage {
 
     @FindBy(xpath = "//span[@class='b-main-navigation__text']")
     public List<WebElement> navigationLinksElements;
-
-    public MainPage() {
-        super();
-    }
 
     public void moveToNavigationLink(String linkName) {
         WebElement itemOfNavigationMenu = getItemFromNavigationLinks(linkName);
