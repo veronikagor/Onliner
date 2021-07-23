@@ -23,7 +23,7 @@ public class DriverManagerFactory {
                 Log.info("New FirefoxDriver instantiated");
                 break;
             default:
-               throw new IllegalArgumentException("There are no assigned behaviour for retrieving driver for browser " + browser);
+               throw new IllegalArgumentException(String.format("There are no assigned behaviour for retrieving driver for [%s] browser ", browser));
         }
         return driverManager;
     }

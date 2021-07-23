@@ -49,7 +49,7 @@ public class MainPage extends BasePage {
         Stream<WebElement> menuItemName = navigationMenuElements.stream().filter(i -> i.getText().equalsIgnoreCase(expectedMenuItemName));
 
         assertThat(menuItemName.count())
-                .as("Expected menu item [" + expectedMenuItemName + "] was not found]")
+                .as(String.format("Expected menu item [%s] was not found]", expectedMenuItemName))
                 .isNotZero();
     }
 }

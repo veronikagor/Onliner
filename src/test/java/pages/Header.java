@@ -17,7 +17,7 @@ public class Header extends BasePage {
     public void pasteToTheSearchField(String text) {
         WaitUtils.waitElementIsClickable(searchFieldElement);
         click(searchFieldElement);
-        searchFieldElement.sendKeys(text);
+        sendKeys(searchFieldElement, text);
         pressEnter(searchFieldElement);
     }
 }

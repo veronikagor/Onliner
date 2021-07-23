@@ -11,6 +11,7 @@ public class JsExecutorUtils {
     }
 
     public static void clickElementWithJSExecutor(WebElement element){
+        Log.info("Click element with Javascript executor");
         executeScript("arguments[0].click()", element);
     }
 }

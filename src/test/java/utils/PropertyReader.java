@@ -38,7 +38,7 @@ public class PropertyReader {
             input = new FileInputStream(PATH_TO_BROWSER_DRIVER);
             prop.load(input);
         } catch (IOException ex) {
-            Log.error("Cannot read property value for " + propertyName);
+            Log.error(String.format("Cannot read property value for [%s]", propertyName));
             ex.printStackTrace();
         } finally {
             if (input != null) {

@@ -24,7 +24,7 @@ public class SearchResultPage extends BasePage {
         String actualValue = searchResultsRow.stream().map(WebElement::getText).collect(Collectors.toList()).toString();
 
         assertThat(actualValue)
-                .as("This result does not contain " + expectedValue)
+                .as(String.format("This result does not contain [%s]", expectedValue))
                 .containsIgnoringCase(expectedValue);
     }
 }

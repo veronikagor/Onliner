@@ -13,6 +13,7 @@ public class WaitUtils {
 
     public static void waitElementIsClickable(WebElement webElement) {
         try {
+            Log.info("Wait until element is clickable");
             wait.until(ExpectedConditions.elementToBeClickable(webElement));
         } catch (Exception e) {
             throw new NoSuchElementException(e.getMessage());
@@ -21,6 +22,7 @@ public class WaitUtils {
 
     public static void waitElementIsVisible(WebElement webElement) {
         try {
+            Log.info("Wait until element is present on the web page");
             wait.until(ExpectedConditions.visibilityOf(webElement));
         } catch (Exception e) {
             throw new NoSuchElementException(e.getMessage());
@@ -29,6 +31,7 @@ public class WaitUtils {
 
     public static void waitElementsAreVisible(List<WebElement> webElementList) {
         try {
+            Log.info("Wait until elements are present on the web page");
             wait.until(ExpectedConditions.visibilityOfAllElements(webElementList));
         } catch (Exception e) {
             throw new NoSuchElementException(e.getMessage());//TODO exception
