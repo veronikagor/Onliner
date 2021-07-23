@@ -1,15 +1,13 @@
 package utils;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import utils.driverUtils.DriverHelper;
 
 public class ActionUtils {
-    private static WebDriver driver = DriverHelper.getDriver();
-    private static Actions builder = new Actions(driver);
+    private static Actions actions = new Actions(DriverHelper.getDriver());
 
     public static void moveToElement(WebElement element) {
-        builder.moveToElement(element).build().perform();
+        actions.moveToElement(element).build().perform();
     }
 }

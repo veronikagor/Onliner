@@ -11,7 +11,6 @@ public class SearchSteps {
 
     public SearchResultSteps executeSearchByKeyword(String keyword) {
         header.pasteToTheSearchField(keyword);
-        header.pressEnter();
         return new SearchResultSteps();
     }
 }

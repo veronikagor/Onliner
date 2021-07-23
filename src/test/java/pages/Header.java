@@ -1,6 +1,5 @@
 package pages;
 
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import utils.WaitUtils;
@@ -18,9 +17,6 @@ public class Header extends BasePage {
         WaitUtils.waitElementIsClickable(searchFieldElement);
         searchFieldElement.click();
         searchFieldElement.sendKeys(text);
-    }
-
-    public void pressEnter() {
-        searchFieldElement.sendKeys((Keys.RETURN));
+        pressEnter(searchFieldElement);
     }
 }

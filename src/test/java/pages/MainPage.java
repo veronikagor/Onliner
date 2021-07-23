@@ -2,9 +2,11 @@ package pages;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import utils.ActionUtils;
 import utils.WaitUtils;
 
 import java.util.List;
+import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -22,7 +24,7 @@ public class MainPage extends BasePage {
 
     public void moveToNavigationLink(String linkName) {
         WebElement itemOfNavigationMenu = getItemFromNavigationLinks(linkName);
-        moveToElement(itemOfNavigationMenu);
+        ActionUtils.moveToElement(itemOfNavigationMenu);
     }
 
     public WebElement getItemFromNavigationLinks(String linkName) {
@@ -47,9 +49,9 @@ public class MainPage extends BasePage {
 
     public void assertThatMenuItemsIsPresent(String expectedMenuItemName) {
         WaitUtils.waitElementsAreVisible(navigationMenuElements);
-        assertThat(navigationMenuElements.stream()
-                .filter(i -> i.getText().equalsIgnoreCase(expectedMenuItemName))
-                .count())
+        Stream<WebElement> menuItemName = navigationMenuElements.stream().filter(i -> i.getText().equalsIgnoreCase(expectedMenuItemName));
+
+        assertThat(menuItemName.count())
                 .as("Expected menu item [" + expectedMenuItemName + "] was not found]")
                 .isNotZero();
     }

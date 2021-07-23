@@ -22,6 +22,7 @@ public class NewsPage extends BasePage {
 
     public void assertThatSelectedMenuItemsAreActive(String expectedText) {
         WaitUtils.waitElementIsVisible(projectNavigationActiveItem);
+
         assertThat(projectNavigationActiveItem.getText()
                 .equalsIgnoreCase(expectedText))
                 .as(String.format("The active project navigation item [%s] was not found or it's no active", expectedText));

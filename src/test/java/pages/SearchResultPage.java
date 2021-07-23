@@ -24,8 +24,9 @@ public class SearchResultPage extends BasePage {
     public void assertThatExpectedValueIsContainInSearchList(String expectedValue) {
         driver.switchTo().frame(searchIframe);
         WaitUtils.waitElementsAreVisible(searchResultsRow);
+        String actualValue = searchResultsRow.stream().map(WebElement::getText).collect(Collectors.toList()).toString();
 
-        assertThat(searchResultsRow.stream().map(WebElement::getText).collect(Collectors.toList()).toString())
+        assertThat(actualValue)
                 .as("This result does not contain " + expectedValue)
                 .containsIgnoringCase(expectedValue);
     }

@@ -7,12 +7,13 @@ public class SearchTest extends BaseTest {
 
     @DataProvider(name = "searchText")
     public Object[][] searchText() {
-        return new Object[][]{{"Вентилятор"}, {"Кофемашина"}};
+        return new Object[][]{
+                {"Вентилятор"},
+                {"Кофемашина"}};
     }
 
     @Test(dataProvider = "searchText")
     public void searchByKeyword_resultShouldContainsCorrectText(String text) {
-
         searchSteps.executeSearchByKeyword(text)
                 .verifyThatTopResultContainsCorrectText(text);
     }

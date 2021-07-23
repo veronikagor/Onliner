@@ -1,9 +1,9 @@
 package pages;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
-import utils.ActionUtils;
 import utils.JsExecutorUtils;
 import utils.WaitUtils;
 import utils.driverUtils.DriverHelper;
@@ -16,10 +16,6 @@ public abstract class BasePage {
         PageFactory.initElements(this.driver, this);
     }
 
-    public void moveToElement(WebElement element) {
-        ActionUtils.moveToElement(element);
-    }
-
     public void click(WebElement element) {
         try {
             WaitUtils.waitElementIsClickable(element);
@@ -27,5 +23,9 @@ public abstract class BasePage {
         } catch (Exception e) {
             JsExecutorUtils.clickElementWithJSExecutor(element);
         }
+    }
+
+    public void pressEnter(WebElement element) {
+       element.sendKeys((Keys.RETURN));
     }
 }
