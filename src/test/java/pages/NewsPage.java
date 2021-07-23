@@ -1,6 +1,5 @@
 package pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import utils.WaitUtils;
@@ -22,14 +21,14 @@ public class NewsPage extends BasePage {
     }
 
     public void assertThatSelectedMenuItemsAreActive(String expectedText) {
-        WaitUtils.waitElementIsVisible(By.xpath("//li[@class='project-navigation__item project-navigation__item_primary project-navigation__item_active']"));
+        WaitUtils.waitElementIsVisible(projectNavigationActiveItem);
         assertThat(projectNavigationActiveItem.getText()
                 .equalsIgnoreCase(expectedText))
                 .as(String.format("The active project navigation item [%s] was not found or it's no active", expectedText));
     }
 
     public void clickTheFirstNews() {
-        WaitUtils.waitElementsAreVisible(By.xpath("//div[starts-with(@class, 'news-tidings__item news-tidings__item_1of3')]"));
+        WaitUtils.waitElementsAreVisible(resultRowOfNews);
         click(resultRowOfNews.get(0));
     }
 }

@@ -1,11 +1,12 @@
 package utils;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.driverUtils.DriverHelper;
+
+import java.util.List;
 
 public class WaitUtils {
     private static WebDriverWait wait = new WebDriverWait(DriverHelper.getDriver(), PropertyReader.getDefaultWebDriverWait());
@@ -18,17 +19,17 @@ public class WaitUtils {
         }
     }
 
-    public static void waitElementIsVisible(By by) {
+    public static void waitElementIsVisible(WebElement webElement) {
         try {
-            wait.until(ExpectedConditions.visibilityOfElementLocated(by));
+            wait.until(ExpectedConditions.visibilityOf(webElement));
         } catch (Exception e) {
             throw new NoSuchElementException(e.getMessage());
         }
     }
 
-    public static void waitElementsAreVisible(By by) {
+    public static void waitElementsAreVisible(List<WebElement> webElementList) {
         try {
-            wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(by));
+            wait.until(ExpectedConditions.visibilityOfAllElements(webElementList));
         } catch (Exception e) {
             throw new NoSuchElementException(e.getMessage());//TODO exception
         }

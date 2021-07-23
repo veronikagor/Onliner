@@ -1,6 +1,5 @@
 package pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import utils.WaitUtils;
@@ -39,7 +38,7 @@ public class MainPage extends BasePage {
     }
 
     public WebElement getMenuItem(String menuItemName) {
-        WaitUtils.waitElementsAreVisible(By.xpath("//div[@class = 'b-main-navigation__dropdown b-main-navigation__dropdown_visible']//a[@class='b-main-navigation__dropdown-title-link']"));
+        WaitUtils.waitElementsAreVisible(navigationMenuElements);
         return navigationMenuElements.stream()
                 .filter(i -> i.getText().equalsIgnoreCase(menuItemName))
                 .findFirst()
@@ -47,7 +46,7 @@ public class MainPage extends BasePage {
     }
 
     public void assertThatMenuItemsIsPresent(String expectedMenuItemName) {
-        WaitUtils.waitElementsAreVisible(By.xpath("//div[@class = 'b-main-navigation__dropdown b-main-navigation__dropdown_visible']//a[@class='b-main-navigation__dropdown-title-link']"));
+        WaitUtils.waitElementsAreVisible(navigationMenuElements);
         assertThat(navigationMenuElements.stream()
                 .filter(i -> i.getText().equalsIgnoreCase(expectedMenuItemName))
                 .count())

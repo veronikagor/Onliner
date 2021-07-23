@@ -1,6 +1,5 @@
 package pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -16,7 +15,7 @@ public class Header extends BasePage {
     }
 
     public void pasteToTheSearchField(String text) {
-        WaitUtils.waitElementIsClickable(driver.findElement(By.className("fast-search__input")));
+        WaitUtils.waitElementIsClickable(searchFieldElement);
         searchFieldElement.click();
         searchFieldElement.sendKeys(text);
     }
