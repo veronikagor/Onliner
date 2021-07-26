@@ -13,8 +13,8 @@ public class SearchTest extends BaseTest {
                 {"Кофемашина"}};
     }
 
-    @Test(dataProvider = "searchText")
-    public void searchByKeyword_resultShouldContainsCorrectText(String text) {
+    @Test(dataProvider = "searchText", description ="this test validates that the results of searching by keyword in search field contain proper text")
+    public void searchByKeywordAndResultShouldContainsCorrectText(String text) {
         searchSteps.executeSearchByKeyword(text)
                 .verifyThatTopResultContainsCorrectText(text);
     }
