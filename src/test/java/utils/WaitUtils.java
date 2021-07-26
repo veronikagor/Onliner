@@ -6,10 +6,11 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.driverUtils.DriverHelper;
 
+import java.time.Duration;
 import java.util.List;
 
 public class WaitUtils {
-    private static WebDriverWait wait = new WebDriverWait(DriverHelper.getDriver(), PropertyReader.getDefaultWebDriverWait());
+    private static WebDriverWait wait = new WebDriverWait(DriverHelper.getDriver(), Duration.ofSeconds(PropertyReader.getDefaultWebDriverWait()));
 
     public static void waitElementIsClickable(WebElement webElement) {
         try {
@@ -34,7 +35,7 @@ public class WaitUtils {
             Log.info("Wait until elements are present on the web page");
             wait.until(ExpectedConditions.visibilityOfAllElements(webElementList));
         } catch (Exception e) {
-            throw new NoSuchElementException(e.getMessage());//TODO exception
+            throw new NoSuchElementException(e.getMessage());
         }
     }
 }

@@ -1,5 +1,6 @@
 package utils;
 
+import exception.PropertyFileNotFoundException;
 import utils.driverUtils.BrowserType;
 
 import java.io.FileInputStream;
@@ -32,7 +33,7 @@ public class PropertyReader {
     private static String getPropertyFromFile(String propertyName) {
         Properties properties = new Properties();
 
-        try (FileInputStream input = new FileInputStream(PATH_TO_BROWSER_DRIVER)){
+        try (FileInputStream input = new FileInputStream(PATH_TO_BROWSER_DRIVER)) {
             properties.load(input);
         } catch (IOException ex) {
             Log.error(String.format("Cannot read property value for [%s]", propertyName));

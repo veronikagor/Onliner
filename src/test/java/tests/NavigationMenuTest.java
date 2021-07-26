@@ -11,10 +11,10 @@ public class NavigationMenuTest extends BaseTest {
     @DataProvider(name = "menuItemName")
     public Object[][] menuItemName() {
         return new Object[][]{
-                {TooltipNewsConstants .PEOPLE},
-                {TooltipNewsConstants .CARS},
-                {TooltipNewsConstants .TECHNOLOGIES},
-                {TooltipNewsConstants .REAL_ESTATE}
+                {TooltipNewsConstants.PEOPLE},
+                {TooltipNewsConstants.CARS},
+                {TooltipNewsConstants.TECHNOLOGIES},
+                {TooltipNewsConstants.REAL_ESTATE}
         };
     }
 
