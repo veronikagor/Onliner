@@ -4,7 +4,6 @@ import utils.driverUtils.BrowserType;
 
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.Properties;
 
 public class PropertyReader {
@@ -31,24 +30,14 @@ public class PropertyReader {
     }
 
     private static String getPropertyFromFile(String propertyName) {
-        Properties prop = new Properties();
-        InputStream input = null;
+        Properties properties = new Properties();
 
-        try {
-            input = new FileInputStream(PATH_TO_BROWSER_DRIVER);
-            prop.load(input);
+        try (FileInputStream input = new FileInputStream(PATH_TO_BROWSER_DRIVER)){
+            properties.load(input);
         } catch (IOException ex) {
             Log.error(String.format("Cannot read property value for [%s]", propertyName));
-            ex.printStackTrace();
-        } finally {
-            if (input != null) {
-                try {
-                    input.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
+            throw new IllegalArgumentException(String.format("File not found with path: [%s] ", PATH_TO_BROWSER_DRIVER));
         }
-        return prop.getProperty(propertyName);
+        return properties.getProperty(propertyName);
     }
 }
