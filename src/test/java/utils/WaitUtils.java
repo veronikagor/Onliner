@@ -4,13 +4,13 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import utils.driverUtils.DriverHelper;
+import utils.driverUtils.DriverManager;
 
 import java.time.Duration;
 import java.util.List;
 
 public class WaitUtils {
-    private static WebDriverWait wait = new WebDriverWait(DriverHelper.getDriver(), Duration.ofSeconds(PropertyReader.getDefaultWebDriverWait()));
+    private static WebDriverWait wait = new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(PropertyReader.getDefaultWebDriverWait()));
 
     public static void waitElementIsClickable(WebElement webElement) {
         try {

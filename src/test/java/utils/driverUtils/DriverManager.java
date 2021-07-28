@@ -1,23 +1,36 @@
 package utils.driverUtils;
 
 import org.openqa.selenium.WebDriver;
+import utils.Log;
 import utils.PropertyReader;
-import java.time.Duration;
 
-public abstract class DriverManager {
-    protected ThreadLocal<WebDriver> drivers = new ThreadLocal<>();
+public class DriverManager {
+    private static final ThreadLocal<WebDriver> drivers = new ThreadLocal<>();
 
-    public WebDriver getDriver() {
-        if (null == drivers.get()) {
-            drivers.set(this.createDriver());
+    public static WebDriver getDriver() {
+        if (drivers.get() == null) {
+            setDriver();
         }
-
-        drivers.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(PropertyReader.getDefaultWebDriverWait()));
-        drivers.get().manage().window().maximize();
-        drivers.get().get(PropertyReader.getBaseUrl());
-
         return drivers.get();
     }
 
-    public abstract WebDriver createDriver();
+    public static void setDriver() {
+        drivers.set(DriverFactory.getDriver(PropertyReader.getBrowser()));
+    }
+
+    public static void goToUrl(String url) {
+        Log.info("Go to " + url);
+        drivers.get().get(url);
+    }
+
+    public static void quitDriver() {
+        Log.info("WebDriver is successfully quit");
+        drivers.get().quit();
+        drivers.remove();
+    }
+
+    public static void closeDriver() {
+        Log.info("WebDriver is successfully close");
+        drivers.get().close();
+    }
 }

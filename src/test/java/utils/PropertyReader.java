@@ -1,6 +1,5 @@
 package utils;
 
-import exception.PropertyFileNotFoundException;
 import utils.driverUtils.BrowserType;
 
 import java.io.FileInputStream;

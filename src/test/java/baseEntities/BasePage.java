@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 import utils.JsExecutorUtils;
 import utils.Log;
 import utils.WaitUtils;
-import utils.driverUtils.DriverHelper;
+import utils.driverUtils.DriverManager;
 
 import java.awt.*;
 import java.awt.datatransfer.Clipboard;
@@ -17,7 +17,7 @@ public abstract class BasePage {
     protected WebDriver driver;
 
     public BasePage() {
-        driver = DriverHelper.getDriver();
+        driver = DriverManager.getDriver();
         PageFactory.initElements(this.driver, this);
     }
 
@@ -33,7 +33,7 @@ public abstract class BasePage {
 
     public void sendKeys(WebElement element, String text) {
         try {
-            Log.info(String.format("Paste [%s]"));
+            Log.info(String.format("Paste [%s]", text));
             element.sendKeys(text);
         } catch (Exception e) {
             Toolkit toolkit = Toolkit.getDefaultToolkit();

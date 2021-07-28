@@ -7,27 +7,26 @@ import steps.NavigationSteps;
 import steps.SearchSteps;
 import utils.Log;
 import utils.PropertyReader;
-import utils.driverUtils.DriverHelper;
+import utils.driverUtils.DriverManager;
 
 public abstract class BaseTest {
-    protected NavigationSteps navigationStep;
-    protected SearchSteps searchSteps;
+    protected NavigationSteps navigationStep = new NavigationSteps();
+    protected SearchSteps searchSteps = new SearchSteps();
 
     @BeforeClass
     public void setUp() {
         Log.startTestCase();
-        navigationStep = new NavigationSteps();
-        searchSteps = new SearchSteps();
+        DriverManager.goToUrl(PropertyReader.getBaseUrl());
     }
 
     @AfterMethod
     public void goBack() {
-       DriverHelper.goToUrl(PropertyReader.getBaseUrl());
+        DriverManager.goToUrl(PropertyReader.getBaseUrl());
     }
 
     @AfterClass
     public void tearDown() {
         Log.endTestCase();
-        DriverHelper.quitDriver();
+        DriverManager.quitDriver();
     }
 }
